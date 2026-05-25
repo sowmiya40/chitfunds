@@ -1,0 +1,27 @@
+/* Dashboard page styling */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, rgba(10, 120, 220, 0.1), rgba(10, 80, 180, 0.05));
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+.dashboard-container h1 {
+  color: #0a78dc;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.dashboard-container p {
+  color: #333;
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-align: center;
+}

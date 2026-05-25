@@ -1,0 +1,49 @@
+.page-container {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+.font-medium {
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.action-link {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.action-link:hover {
+  background-color: #eff6ff;
+  text-decoration: underline;
+}
+
+.subscriber-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.style-overdue {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

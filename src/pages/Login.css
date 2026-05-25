@@ -1,0 +1,102 @@
+/* Updated login page styling - modern professional look */
+:root {
+  --primary-blue: #0a78dc;
+  --primary-dark: #095bb5;
+  --bg-gradient: linear-gradient(135deg, rgba(10, 120, 220, 0.12), rgba(10, 80, 180, 0.04));
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --text-primary: #1a202c;
+  --error-red: #e53e3e;
+  --border-color: #cbd5e0;
+}
+
+/* Container fills the viewport with a subtle gradient */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card holds the logo, title and form */
+.login-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.45s ease-out;
+}
+
+/* Layout for the logo + title */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+.logo-section .logo {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.6rem;
+}
+.logo-section h1 {
+  font-size: 1.9rem;
+  color: var(--primary-blue);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Form inputs */
+.login-form input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.login-form input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(10, 120, 220, 0.18);
+}
+
+/* Submit button */
+.login-button {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.login-button:hover {
+  background: var(--primary-dark);
+}
+.login-button:active {
+  transform: translateY(1px);
+}
+
+.error-msg {
+  color: var(--error-red);
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* Fade‑in animation for the card */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
