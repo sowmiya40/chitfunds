@@ -4,7 +4,7 @@ import { Plus, Landmark, Users, ChevronRight } from 'lucide-react';
 import './Groups.css';
 
 // API endpoint for groups
-const GROUPS_ENDPOINT = '/api/groups/';
+const GROUPS_ENDPOINT = 'https://swarm-guidance-uplifting.ngrok-free.dev/api/groups/';
 
 const Groups = () => {
   const navigate = useNavigate();

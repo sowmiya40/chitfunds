@@ -65,10 +65,10 @@ const SubscriberDetails = () => {
         initial: (sub.customer_name || sub.name || '?').charAt(0).toUpperCase()
       });
 
-      const resp = await fetch(`/api/customers/${id}?t=${Date.now()}`, { headers, cache: 'no-store' });
+      const resp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/${id}?t=${Date.now()}`, { headers, cache: 'no-store' });
       if (!resp.ok) {
         if (resp.status === 404 || resp.status === 500) {
-           const allResp = await fetch(`/api/customers/?t=${Date.now()}`, { headers, cache: 'no-store' });
+           const allResp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/?t=${Date.now()}`, { headers, cache: 'no-store' });
            if (!allResp.ok) throw new Error('Not found');
            const allData = await allResp.json();
            const allSubs = Array.isArray(allData) ? allData : (allData.data || []);
@@ -102,8 +102,8 @@ const SubscriberDetails = () => {
       } : { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' };
 
       const [groupsResp, cGroupsResp] = await Promise.all([
-        fetch(`/api/groups/?t=${Date.now()}`, { headers, cache: 'no-store' }),
-        fetch(`/api/customer-groups/?t=${Date.now()}`, { headers, cache: 'no-store' })
+        fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/groups/?t=${Date.now()}`, { headers, cache: 'no-store' }),
+        fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/?t=${Date.now()}`, { headers, cache: 'no-store' })
       ]);
 
       if (!groupsResp.ok || !cGroupsResp.ok) return;
@@ -217,7 +217,7 @@ const SubscriberDetails = () => {
         Authorization: `Bearer ${token}`
       } : { 'Content-Type': 'application/json' };
 
-      const resp = await fetch(`/api/customers/${id}/`, {
+      const resp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/${id}/`, {
         method: 'PUT',
         headers,
         body: JSON.stringify(payload)

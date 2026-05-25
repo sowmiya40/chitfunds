@@ -16,7 +16,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('/api/staff/', {
+      const response = await fetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/staff/', {
         headers: {
           'ngrok-skip-browser-warning': 'true',
           'Content-Type': 'application/json'

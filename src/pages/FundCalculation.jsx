@@ -41,7 +41,7 @@ const FundCalculation = () => {
   // ── 1. Fetch all groups on mount ──────────────────────────────────────
   useEffect(() => {
     setLoadingGroups(true);
-    apiFetch('/api/groups/')
+    apiFetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/groups/')
       .then((data) => {
         const list = Array.isArray(data) ? data : (data.results || data.data || []);
         setGroups(list);
@@ -59,9 +59,9 @@ const FundCalculation = () => {
       // Fetch ALL customer-groups + customers + collections, then filter client-side
       // (mirrors exact GroupDetails.jsx fetch strategy)
       const [allCgData, custData, collData] = await Promise.all([
-        apiFetch('/api/customer-groups/'),
-        apiFetch('/api/customers/'),
-        apiFetch(`/api/collections/?group=${group.id}`),
+        apiFetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/'),
+        apiFetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/'),
+        apiFetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/collections/?group=${group.id}`),
       ]);
 
       const allCgList = Array.isArray(allCgData) ? allCgData : (allCgData.data || []);
@@ -111,8 +111,8 @@ const FundCalculation = () => {
     const fetchAll = async () => {
       try {
         const [cgData, custData] = await Promise.all([
-          apiFetch('/api/customer-groups/'),
-          apiFetch('/api/customers/'),
+          apiFetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/'),
+          apiFetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/'),
         ]);
         const cgList   = Array.isArray(cgData)  ? cgData  : (cgData.data  || []);
         const custList = Array.isArray(custData) ? custData: (custData.data|| []);

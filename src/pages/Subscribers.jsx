@@ -5,7 +5,7 @@ import { groupsData } from '../data/mockData';
 import './Subscribers.css';
 
 // API endpoint for subscribers (proxied via Vite)
-const SUBSCRIBERS_ENDPOINT = '/api/customers/';
+const SUBSCRIBERS_ENDPOINT = 'https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/';
 
 const emptyForm = {
   branchName: '', agentName: '', chitValue: '', groupNo: '', monthlyInst: '', duration: '', admissionFees: '',
@@ -47,7 +47,7 @@ const Subscribers = () => {
       });
       
       // Fetch customer-groups to calculate scheme counts
-      const cgResp = await fetch(`/api/customer-groups/?t=${Date.now()}`, {
+      const cgResp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/?t=${Date.now()}`, {
         headers: getHeaders(),
         cache: 'no-store'
       });

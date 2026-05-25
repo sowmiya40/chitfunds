@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronDown, ChevronUp, Check, Smartphone, Banknote, Landm
 import { groupsData } from '../data/mockData';
 import './GroupDetails.css';
 
-const GROUPS_ENDPOINT = '/api/groups/';
+const GROUPS_ENDPOINT = 'https://swarm-guidance-uplifting.ngrok-free.dev/api/groups/';
 
 const GroupDetails = () => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const GroupDetails = () => {
       const headers = token 
         ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' }
         : { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' };
-      const resp = await fetch(`/api/customers/?t=${Date.now()}`, { headers, cache: 'no-store' });
+      const resp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/?t=${Date.now()}`, { headers, cache: 'no-store' });
       const data = await resp.json();
       const subsArray = Array.isArray(data) ? data : (data.data || []);
       const processed = subsArray.map(sub => ({
@@ -76,7 +76,7 @@ const GroupDetails = () => {
         group_ticket_no: String(groupMembers.length + 1)
       };
 
-      const resp = await fetch('/api/customer-groups/', {
+      const resp = await fetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/', {
         method: 'POST',
         headers,
         body: JSON.stringify(payload)
@@ -113,7 +113,7 @@ const GroupDetails = () => {
         const headers = token
           ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' }
           : { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' };
-        const collectionsResp = await fetch(`/api/collections/?group=${id}&t=${Date.now()}`, { headers, cache: 'no-store' });
+        const collectionsResp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/collections/?group=${id}&t=${Date.now()}`, { headers, cache: 'no-store' });
         if (collectionsResp.ok) {
           const collData = await collectionsResp.json();
           const paymentsByMember = {};
@@ -143,8 +143,8 @@ const GroupDetails = () => {
           : { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' };
         const [groupsResp, cGroupsResp, customersResp] = await Promise.all([
           fetch(GROUPS_ENDPOINT, { headers }),
-          fetch('/api/customer-groups/', { headers }),
-          fetch('/api/customers/', { headers })
+          fetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/', { headers }),
+          fetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/customers/', { headers })
         ]);
         if (!groupsResp.ok) throw new Error('Failed to load groups');
         const groupsData = await groupsResp.json();
@@ -234,7 +234,7 @@ const GroupDetails = () => {
         ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' }
         : { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' };
         
-      const resp = await fetch(`/api/customer-groups/${member.relationId}/`, {
+      const resp = await fetch(`https://swarm-guidance-uplifting.ngrok-free.dev/api/customer-groups/${member.relationId}/`, {
         method: 'DELETE',
         headers
       });
@@ -390,7 +390,7 @@ const GroupDetails = () => {
       const headers = token
         ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' }
         : { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' };
-      const resp = await fetch('/api/collections/', {
+      const resp = await fetch('https://swarm-guidance-uplifting.ngrok-free.dev/api/collections/', {
         method: 'POST',
         headers,
         body: JSON.stringify(payload)
